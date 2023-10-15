@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [  ]
+        language: ['python']
         # CodeQL supports [ 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift' ]
         # Use only 'java-kotlin' to analyze code written in Java, Kotlin or both
         # Use only 'javascript-typescript' to analyze code written in JavaScript, TypeScript or both
@@ -85,7 +85,7 @@ jobs:
            
     - name: Check for 'aero' keyword
         run: |
-          codeql database query .codeql-db /path/to/CustomRule.ql --format=csv > results.csv
+          codeql database query .codeql-db custom_rule.ql --format=csv > results.csv
           if [ -s results.csv ]; then
             echo "Warning: 'aero' keyword found."
             cat results.csv
